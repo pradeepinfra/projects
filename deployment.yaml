@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: infravyom-site
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: infravyom
+
+  template:
+    metadata:
+      labels:
+        app: infravyom
+
+    spec:
+      containers:
+      - name: infravyom
+        image: <account-id>.dkr.ecr.ap-south-1.amazonaws.com/infravyom-website
+        ports:
+        - containerPort: 80
